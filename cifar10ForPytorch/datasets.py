@@ -1,3 +1,4 @@
+import numpy as np
 from torchvision.datasets import CIFAR10
 from torch.utils.data import Dataset
 
@@ -37,7 +38,7 @@ class Cifar10Dataset(Dataset):
     
     def __getCifar10(self, root: str, is_train: bool) -> tuple[Tensor, Tensor]:
         cifar = CIFAR10(root, train=is_train, download=True)
-        return cifar.data, cifar.targets
+        return Tensor(cifar.data.astype(np.float32)), Tensor(cifar.targets).long()
     
     def __flatten(self, x) -> Tensor:
         batch, height, weight, channel = x.shape
