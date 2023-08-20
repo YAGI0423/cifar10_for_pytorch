@@ -29,7 +29,7 @@
 
 ## Getting Start
 
-### Get Logic Dataset
+### Get Cifar10 Dataset
 ```python
 from torch.utils.data import DataLoader
 from cifar10ForPytorch.datasets import Cifar10Dataset
